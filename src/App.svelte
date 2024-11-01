@@ -236,7 +236,7 @@
         </div>
         <div class="intro-section">
           <h2>About This Tool</h2>
-          <p>This tool helps you convert Omnivore exported ZIP files into organized Markdown files.</p>
+          <p>This tool helps you convert Omnivore exported ZIP files into organized Markdown files. Locally in your browser.</p>
           
           <h3>Key Features:</h3>
           <ul>
@@ -384,7 +384,7 @@
 
   .intro-section {
     font-size: 14px;
-    margin-left: 4rem
+    margin-left: 4rem;
   }
 
   .upload-section {
@@ -432,6 +432,7 @@
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
   }
 
   .filter-button {
@@ -443,12 +444,14 @@
     transition: background 0.2s;
     font-size: 14px;
     color: rgb(55, 53, 47);
+    flex: 1;
+    min-width: 80px;
   }
 
   .filter-button.active {
-    background: rgb(46, 170, 220);
+    background: #0056b3;
     color: white;
-    border-color: rgb(46, 170, 220);
+    border-color: #0056b3;
   }
 
   .filter-button:hover:not(.active) {
@@ -456,22 +459,24 @@
   }
 
   .upload-button {
-    background: rgb(46, 170, 220);
+    background: #0056b3;
     color: white;
-    padding: 0.6rem 1.2rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.2s;
     display: inline-block;
-    font-size: 14px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
   }
 
   .upload-button:hover {
-    background: rgb(6, 156, 205);
+    background: #003d82;
   }
 
   .upload-button.processing {
-    background: rgb(235, 87, 87);
+    background: #dc3545;
     cursor: not-allowed;
   }
 
@@ -484,6 +489,8 @@
     padding: 1rem;
     border-radius: 8px;
     border: 1px solid rgba(15, 15, 15, 0.1);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .progress-bar {
@@ -497,7 +504,7 @@
 
   .progress {
     height: 100%;
-    background: rgb(46, 170, 220);
+    background: #0056b3;
     transition: width 0.3s ease;
   }
 
@@ -508,6 +515,8 @@
     font-size: 14px;
     color: rgb(55, 53, 47);
     margin: 0.5rem 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .status-left {
@@ -515,6 +524,8 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: 1rem;
+    flex: 1;
+    min-width: 200px;
   }
 
   .status-right {
@@ -534,18 +545,20 @@
   }
 
   .download-button {
-    padding: 0.6rem 1.2rem;
-    background: rgb(46, 170, 220);
+    padding: 0.8rem 1.5rem;
+    background: #0056b3;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     transition: background 0.2s;
+    width: 100%;
+    max-width: 300px;
   }
 
   .download-button:hover {
-    background: rgb(6, 156, 205);
+    background: #003d82;
   }
 
   .failures-section {
@@ -640,7 +653,11 @@
 
   @media (max-width: 768px) {
     .main-content {
-      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+
+    .header {
+      padding: 1rem;
     }
 
     .header-content {
@@ -649,8 +666,52 @@
       text-align: center;
     }
 
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .intro-section {
+      margin-left: 0;
+      padding: 0 1rem;
+    }
+
+    .progress-controls {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .left-controls, .right-controls {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .control-button, .download-button {
+      width: 100%;
+      max-width: none;
+    }
+
+    .filter-buttons {
+      justify-content: center;
+    }
+
+    .filter-button {
+      flex: 1;
+      min-width: 40%;
+      text-align: center;
+    }
+
     .log-container {
       height: 300px;
+    }
+
+    .status-text {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .status-left {
+      margin-right: 0;
+      min-width: 0;
     }
   }
 </style>
