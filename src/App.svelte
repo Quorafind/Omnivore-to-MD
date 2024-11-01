@@ -44,21 +44,23 @@
     showUploadPanel = false;
     progress = 0;
     downloadUrl = null;
-
     try {
       addLog('info', 'Starting file processing...');
       const zip = new JSZip();
       const uploadedZip = await JSZip.loadAsync(input.files[0]);
       addLog('info', 'ZIP file loaded successfully');
       
-      const metadataFile = uploadedZip.file('metadata_0_to_5.json');
-      if (!metadataFile) {
+      // Find metadata file that matches pattern metadata_*.json
+      const metadataFile = Object.keys(uploadedZip.files)
+        .find(filename => filename.match(/^metadata_.*\.json$/));
+      
+      if (!metadataFile || !uploadedZip.file(metadataFile)) {
         addLog('error', 'Metadata file not found');
         throw new Error('Metadata file not found');
       }
       
       const metadata: ArticleMetadata[] = JSON.parse(
-        await metadataFile.async('string')
+        await uploadedZip.file(metadataFile)!.async('string')
       );
 
       const htmlFiles: { [key: string]: string } = {};
@@ -107,7 +109,6 @@
       isProcessing = false;
       addLog('info', 'Processing completed');
     }
-  }
 
   function handleDownload() {
     if (!downloadUrl) return;
