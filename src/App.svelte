@@ -167,7 +167,7 @@
   <header class="header">
     <div class="header-content">
       <div class="header-left">
-        <h3 class="title">Omnivore Data to Markdown</h3>
+        <h4 class="title">Omnivore Data Converter</h4>
       </div>
       <a href="https://github.com/Quorafind/Omnivore-to-MD" class="github-link" target="_blank" rel="noopener">
         GitHub
