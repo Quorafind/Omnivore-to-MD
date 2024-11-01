@@ -169,7 +169,7 @@
       <div class="header-left">
         <h3 class="title">Omnivore Data to Markdown</h3>
       </div>
-      <a href="https://github.com/your-repo-url" class="github-link" target="_blank" rel="noopener">
+      <a href="https://github.com/Quorafind/Omnivore-to-MD" class="github-link" target="_blank" rel="noopener">
         GitHub
       </a>
     </div>
@@ -300,6 +300,11 @@
       </div>
     {/if}
   </div>
+  <footer class="footer">
+    <div class="footer-content">
+      © 2024 Boninall
+    </div>
+  </footer>
 </main>
 
 <style>
@@ -358,6 +363,7 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    flex: 1;
   }
 
   .main-content.processing {
@@ -618,6 +624,18 @@
 
   .log-message {
     color: rgb(55, 53, 47);
+  }
+
+  .footer {
+    background-color: #f5f5f5;
+    padding: 1rem 2rem;
+    border-top: 1px solid #ddd;
+    text-align: center;
+  }
+
+  .footer-content {
+    color: #445566;
+    font-size: 14px;
   }
 
   @media (max-width: 768px) {
