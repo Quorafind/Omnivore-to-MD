@@ -110,6 +110,7 @@
       isProcessing = false;
       addLog('info', 'Processing completed');
     }
+  }
 
   function handleDownload() {
     if (!downloadUrl) return;
