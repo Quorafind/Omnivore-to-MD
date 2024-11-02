@@ -18,6 +18,7 @@
   let selectedFilter = 'all';
   let totalFiles = 0;
   let processedFiles = 0;
+  let displayProgress = 0;
 
   function addLog(type: 'info' | 'warning' | 'error', message: string) {
     processLogs = [...processLogs, {
